@@ -16,7 +16,7 @@ import { RouterLink, RouterView } from "vue-router";
       <HelloWorld msg="You did it!" />
 
       <nav>
-        <RouterLink to="/Home">Home</RouterLink>
+        <a href="/">Home</a>
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/Contact">Contact</RouterLink>
       </nav>

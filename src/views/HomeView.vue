@@ -1,29 +1,22 @@
 <script>
 import TheWelcome from "@/components/TheWelcome.vue";
-import { onMounted } from "vue";
+import { ref } from "vue";
 
 export default {
   components: { TheWelcome },
 
   setup() {
-    onMounted(() => {
-      alert("Hi there");
 
-    });
+    let message =ref("Hello, World!");
+
+    setTimeout(() => {
+      message.value = "I Have Been Changed";
+    }, 2000);
     
     return {
-      message: "Hello World",
+      message,
     };
   },
-
-  // data() {
-  //   return {
-  //     message: "Hello World",
-  //   };
-  // },
-  // mounted() {
-  //   alert("I have been mounted");
-  // },
 };
 </script>
 

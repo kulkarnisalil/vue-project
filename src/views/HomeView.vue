@@ -2,14 +2,21 @@
 import TheWelcome from "@/components/TheWelcome.vue";
 export default {
   components: { TheWelcome },
-  data() {
+
+  setup() {
     return {
       message: "Hello World",
     };
   },
-  mounted() {
-    alert("I have been mounted");
-  },
+
+  // data() {
+  //   return {
+  //     message: "Hello World",
+  //   };
+  // },
+  // mounted() {
+  //   alert("I have been mounted");
+  // },
 };
 </script>
 

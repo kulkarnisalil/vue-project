@@ -1,6 +1,6 @@
 <script setup>
 import TheWelcome from "@/components/TheWelcome.vue";
-    //esLint-disable-next-line no-undef
+// eslint-disable-next-line no-undef
 let message = $ref("Hello, World!");
 
     let doSomething = () => {

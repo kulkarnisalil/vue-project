@@ -1,12 +1,11 @@
 <script setup>
 import TheWelcome from "@/components/TheWelcome.vue";
-import { ref } from "vue";
+    //esLint-disable-next-line no-undef
+let message = $ref("Hello, World!");
 
-let message =ref("Hello, World!");
-
-    setTimeout(() => {
-      message.value = "I Have Been Changed";
-    }, 2000);
+    let doSomething = () => {
+      alert("doing it now");
+    };
 </script>
 
 <template>
@@ -14,7 +13,7 @@ let message =ref("Hello, World!");
     <TheWelcome />
     <p>{{ message }}</p>
     <p>
-      <input type="text" v-model="message" />
+      <button @click="doSomething">Click Me</button>
     </p>
   </main>
 </template>

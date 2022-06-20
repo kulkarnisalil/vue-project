@@ -1,20 +1,15 @@
-<script setup>
+<script>
 import TheWelcome from "@/components/TheWelcome.vue";
-// eslint-disable-next-line no-undef
-let message = $ref("Hello, World!");
 
-    let doSomething = () => {
-      alert("doing it now");
-    };
+export default{
+  components: { TheWelcome },
+};
 </script>
 
 <template>
   <main>
     <TheWelcome />
-    <p>{{ message }}</p>
-    <p>
-      <button @click="doSomething">Click Me</button>
-    </p>
+    
   </main>
 </template>
  

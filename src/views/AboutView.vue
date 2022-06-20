@@ -5,7 +5,9 @@ let { flash } = useFlash();
 <template>
   <div>
     <p>
-      <button @click="flash('Yay!', 'It Works On The About Page!', 'info')">Click Me</button>
+      <button @click="flash('Yay!', 'It Works On The About Page!', 'info')">
+        Click Me
+      </button>
     </p>
   </div>
 </template>

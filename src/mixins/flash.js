@@ -1,9 +1,9 @@
-import swal from 'sweetalert'
+import swal from "sweetalert";
 
 export default {
-    methods: {
-      flash(message) {
-        return swal('Success!', message, 'success')
-      }
-    }
-}
+  methods: {
+    flash(message) {
+      return swal("Success!", message, "success");
+    },
+  },
+};

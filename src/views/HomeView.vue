@@ -1,40 +1,18 @@
 <script>
-import TheWelcome from "@/components/TheWelcome.vue";
-import { onMounted, ref } from "vue";
-
-export default{
-  components: { TheWelcome },
-
-  setup() {
-    onMounted(() => {
-      alert("Hi there");
-    });
-    let message = ref("Hello World");
-    return {
-      message,
-    };
-  },
-
-  // data() {
-  //   return {
-  //     message: "Hello World",
-  //   };
-  // },
-
-  //   mounted(){
-  //     alert("I have been mounted");
-  //   },
-};
+  export default {
+    methods: {
+      flash(message) {
+        alert(message);
+      }
+    }
+  }
 </script>
 
 <template>
   <main>
-    <TheWelcome />
-
-    <p>{{ message }}</p>
-    <p>
-      <input type="text" v-model="message" />
-    </p>   
+   <p>
+    <button @click="flash('It Works!')">Click Me</button>
+   </p>
   </main>
 </template>
  

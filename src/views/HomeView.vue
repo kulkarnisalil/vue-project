@@ -1,17 +1,29 @@
 <script>
 import TheWelcome from "@/components/TheWelcome.vue";
+import { onMounted, ref } from "vue";
 
 export default{
   components: { TheWelcome },
-  data() {
+
+  setup() {
+    onMounted(() => {
+      alert("Hi there");
+    });
+    let message = ref("Hello World");
     return {
-      message: "Hello World",
+      message,
     };
   },
 
-    mounted(){
-      alert("I have been mounted");
-    },
+  // data() {
+  //   return {
+  //     message: "Hello World",
+  //   };
+  // },
+
+  //   mounted(){
+  //     alert("I have been mounted");
+  //   },
 };
 </script>
 
@@ -20,7 +32,9 @@ export default{
     <TheWelcome />
 
     <p>{{ message }}</p>
-    
+    <p>
+      <input type="text" v-model="message" />
+    </p>   
   </main>
 </template>
  

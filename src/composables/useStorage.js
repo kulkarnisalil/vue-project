@@ -1,16 +1,23 @@
 import { ref, watch } from "vue";
 
-export function useStorage(key) {
-  let storedVal = localStorage.getItem(key);
+export function useStorage(key, val = null) {
+  let storedVal = read();
 
-  let val = ref(storedVal);
-
-  watch(val, () => {
+  if (storedVal) {
+    val = ref(storedVal);
+  } else {
+    val = ref(val);
     write();
-  });
+  }
+
+  watch(val, write);
+
+  function read() {
+    return JSON.parse(localStorage.getItem(key));
+  }
 
   function write() {
-    if (val.value == "") {
+    if (val.value == null || val.value == "") {
       localStorage.removeItem(key);
     } else {
       localStorage.setItem(key, val.value);

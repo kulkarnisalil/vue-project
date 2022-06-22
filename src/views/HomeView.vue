@@ -1,18 +1,8 @@
 <script setup>
 import { useStorage } from "@/composables/useStorage";
 
-let food = useStorage("food");
-
-// let food = ref(localStorage.getItem("food"));
-// let age = ref(localStorage.getItem("age"));
-
-// watch(food, (val) => {
-//   write("food", val);
-// });
-
-// watch(age, (val) => {
-//   write("age", val);
-// });
+let food = useStorage("food", "tacos");
+let age = useStorage("age", 10);
 </script>
 
 <template>
@@ -20,6 +10,11 @@ let food = useStorage("food");
     <p>
       What is your favorite food?
       <input type="text" v-model="food" />
+    </p>
+
+    <p>
+      How old are you?
+      <input type="text" v-model="age" />
     </p>
   </main>
 </template>

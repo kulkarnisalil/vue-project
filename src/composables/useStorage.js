@@ -6,7 +6,7 @@ export function useStorage(key, val = null) {
   if (storedVal) {
     val = ref(storedVal);
   } else {
-    val = ref(val); 
+    val = ref(val);
     write();
   }
 
@@ -20,7 +20,7 @@ export function useStorage(key, val = null) {
     if (val.value == null || val.value == "") {
       localStorage.removeItem(key);
     } else {
-      localStorage.setItem(key, JSON.stringify (val.value));
+      localStorage.setItem(key, JSON.stringify(val.value));
     }
   }
 

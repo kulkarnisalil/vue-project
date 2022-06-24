@@ -1,27 +1,28 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 let textarea = ref(null);
 
-console.log(textarea.value);
+onMounted(() => {
+  textarea.value.addEventListenere("keydown", (e) => {
+    let t = textarea.value;
+    // tab was pressed
+    if (e.keyCode == 9) {
+      // get caret position/selection
+      let val = t.value,
+        start = t.selectionStart,
+        end = t.selectionEnd;
 
-// textarea.addEventListenere("keydown", (e) => {
-//   // tab was pressed
-//   if (e.keyCode == 9) {
-//     // get caret position/selection
-//     let val =textarea.value,
-//     start = textarea.selectionStart,
-//     end = textarea.selectionEnd;
+      // set textarea value to: text before caret + tab + text after caret
+      t.value = val.substring(0, start) + "\t" + val.substring(end);
 
-//     // set textarea value to: text before caret + tab + text after caret
-//     tectarea.value = val.substring(0, start) + "\t" + val.substring(end);
+      // put caret at right position again
+      t.selectionStart = t.selectionEnd = start + 1;
 
-//     // put caret at right position again
-//     textarea.selectionStart = textarea.selectionEnd = start + 1;
-
-//     e.preventDefault();
-//   }
-// })
+      e.preventDefault();
+    }
+  });
+});
 </script>
 
 <template>

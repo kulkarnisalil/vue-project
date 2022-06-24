@@ -1,36 +1,36 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { ref } from "vue";
 
 let textarea = ref(null);
 
-onMounted(() => {
-  textarea.value.addEventListenere("keydown", (e) => {
-    let t = textarea.value;
-    // tab was pressed
-    if (e.keyCode == 9) {
-      // get caret position/selection
-      let val = t.value,
-        start = t.selectionStart,
-        end = t.selectionEnd;
+function onKeyDown(e) {
 
-      // set textarea value to: text before caret + tab + text after caret
-      t.value = val.substring(0, start) + "\t" + val.substring(end);
+  let t = textarea.value;
 
-      // put caret at right position again
-      t.selectionStart = t.selectionEnd = start + 1;
+  // tab was pressed
+  if (e.keyCode == 9) {
+    // get caret position/selection
+    let val = t.value,
+      start = t.selectionStart,
+      end = t.selectionEnd;
 
-      e.preventDefault();
-    }
-  });
-});
+    // set textarea value to: text before caret + tab + text after caret
+    t.value = val.substring(0, start) + "\t" + val.substring(end);
+
+    // put caret at right position again
+    t.selectionStart = t.selectionEnd = start + 1;
+
+    e.preventDefault();
+  }
+}
+
 </script>
 
 <template>
   <main>
     <form>
-      <textarea ref="textarea" style="width: 100%; height: 300px">
-Hi There</textarea
-      >
+      <textarea ref="textarea" @keydown.tab="onKeyDown" style="width: 100%; height: 300px">
+Hi There</textarea>
     </form>
   </main>
 </template>

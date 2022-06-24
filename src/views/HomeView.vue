@@ -3,6 +3,8 @@ import { useStorage } from "@/composables/useStorage";
 
 let food = useStorage("food", "tacos");
 let age = useStorage("age", 10);
+
+useStorage("obj", { one: "one" });
 </script>
 
 <template>

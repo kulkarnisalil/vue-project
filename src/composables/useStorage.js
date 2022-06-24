@@ -6,11 +6,11 @@ export function useStorage(key, val = null) {
   if (storedVal) {
     val = ref(storedVal);
   } else {
-    val = ref(val);
+    val = ref(val); 
     write();
   }
 
-  watch(val, write);
+  watch(val, write, { deep: true });
 
   function read() {
     return JSON.parse(localStorage.getItem(key));
@@ -20,7 +20,7 @@ export function useStorage(key, val = null) {
     if (val.value == null || val.value == "") {
       localStorage.removeItem(key);
     } else {
-      localStorage.setItem(key, val.value);
+      localStorage.setItem(key, JSON.stringify (val.value));
     }
   }
 

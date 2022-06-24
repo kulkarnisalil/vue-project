@@ -5,7 +5,7 @@ import TabbableTextarea from "../components/TabbableTextarea.vue";
 let comment = ref("tast value");
 
 setTimeout(() => {
-  comment.value = 'it works!';
+  comment.value = "it works!";
 }, 2000);
 </script>
 

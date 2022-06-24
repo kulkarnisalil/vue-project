@@ -1,11 +1,18 @@
 <script setup>
+import { ref } from "vue";
 import TabbableTextarea from "../components/TabbableTextarea.vue";
+
+let comment = ref("tast value");
+
+setTimeout(() => {
+  comment.value = 'it works!';
+}, 2000);
 </script>
 
 <template>
   <main>
     <form>
-      <TabbableTextarea style="width: 100%; height: 300px" />
+      <TabbableTextarea v-model="comment" style="width: 100%; height: 300px" />
     </form>
   </main>
 </template>

@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import TabbableTextarea from "../components/TabbableTextarea.vue";
 
-let comment = ref("tast value");
+let comment = ref("test value");
 
 setTimeout(() => {
   comment.value = "it works!";
